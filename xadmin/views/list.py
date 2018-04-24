@@ -77,9 +77,12 @@ class ResultItem(object):
 
     @property
     def tagattrs(self):
-        return mark_safe(
-            '%s%s' % ((self.tag_attrs and ' '.join(self.tag_attrs) or ''),
-                      (self.classes and (' class="%s"' % ' '.join(self.classes)) or '')))
+        if self.field_name is 'addressbook_meta_color' and self.tag is 'td':
+            return mark_safe(' style="background-color:%s"' % self.value)
+        else:
+            return mark_safe(
+                '%s%s' % ((self.tag_attrs and ' '.join(self.tag_attrs) or ''),
+                          (self.classes and (' class="%s"' % ' '.join(self.classes)) or '')))
 
 
 class ResultHeader(ResultItem):

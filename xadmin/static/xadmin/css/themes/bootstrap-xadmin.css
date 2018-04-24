@@ -1,62 +1,289 @@
-
 /* results table */
 .table th {
-  background-color: #FAFAFA;
-  background-image: -moz-linear-gradient(top, white, #F2F2F2);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#F2F2F2));
-  background-image: -webkit-linear-gradient(top, white, #F2F2F2);
-  background-image: -o-linear-gradient(top, white, #F2F2F2);
-  background-image: linear-gradient(to bottom, white, #F2F2F2);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
-  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
-  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
-  border-bottom-width: 1px !important;
+    background-color: #FAFAFA;
+    background-image: -moz-linear-gradient(top, white, #F2F2F2);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#F2F2F2));
+    background-image: -webkit-linear-gradient(top, white, #F2F2F2);
+    background-image: -o-linear-gradient(top, white, #F2F2F2);
+    background-image: linear-gradient(to bottom, white, #F2F2F2);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+    border-bottom-width: 1px !important;
 }
 
 /** panel **/
 .panel-default {
-  border-radius: 2px;
-}
-.panel-default > .panel-heading {
-  background-color: #F8F8F8;
-  background-image: -moz-linear-gradient(top, #FDFDFD, #F6F6F6);
-  background-image: -ms-linear-gradient(top, #FDFDFD, #F6F6F6);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FDFDFD), to(#F6F6F6));
-  background-image: -webkit-linear-gradient(top, #FDFDFD, #F6F6F6);
-  background-image: -o-linear-gradient(top, #FDFDFD, #F6F6F6);
-  background-image: linear-gradient(top, #FDFDFD, #F6F6F6);
+    border-radius: 2px;
 }
 
+.panel-default > .panel-heading {
+    background-color: #F8F8F8;
+    background-image: -moz-linear-gradient(top, #FDFDFD, #F6F6F6);
+    background-image: -ms-linear-gradient(top, #FDFDFD, #F6F6F6);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FDFDFD), to(#F6F6F6));
+    background-image: -webkit-linear-gradient(top, #FDFDFD, #F6F6F6);
+    background-image: -o-linear-gradient(top, #FDFDFD, #F6F6F6);
+    background-image: linear-gradient(top, #FDFDFD, #F6F6F6);
+}
+
+/* Odd-Henrik*/
+.form-group {
+    width: 100%;
+}
+
+.form-horizontal .form-group {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+/*
 .form-group {
   border-bottom: 1px solid #EEE;
   background-color: #FBFBFB;
   margin-top: 0px !important;
   margin-bottom: 0px !important;
-}
+}*/
 .controls {
-  background-color: white;
-  padding: 15px !important;
+    background-color: white;
+    /*padding: 15px !important;*/
+    /*Odd-Henrik*/
+    /*width: 100%;*/
 }
+
 .control-label {
-  margin-bottom: 0px !important;
+    margin-bottom: 0px !important;
 }
+
 .fieldset .panel-body {
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
 }
+
 .form-inline .form-group {
-  background: transparent;
-  border: none;
+    background: transparent;
+    border: none;
 }
 
 /** fieldset **/
 @media (min-width: 768px) {
-  .form-horizontal .controls{
-    border-left: 1px solid #EEE;
-  }
-  .form-horizontal .control-label {
-    padding-top: 22px !important;
-  }
+    .form-horizontal .controls {
+        /*Odd-Henrik*/
+        /*border-left: 1px solid #EEE;*/
+    }
+
+    .form-horizontal .control-label {
+        /*Odd-Henrik*/
+        /*padding-top: 22px !important;*/
+    }
+}
+
+/*Odd-Henrik*/
+.oh_blank_fieldset {
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.oh_blank_fieldset > .panel-heading {
+    display: none;
+}
+
+.oh-colwraper {
+    width: 100%;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.oh-collisting {
+    padding: 0px 15px 0 0;
+
+}
+
+div.oh-form-fields {
+    display: flex !important;
+    flex-flow: column-reverse;
+    margin-bottom: 1em !important;
+}
+
+.oh-form-fields-textarea {
+    display: flex !important;
+    flex-flow: column-reverse;
+    padding: 15px 0 0 0;
+}
+
+.oh-form-fields-textarea {
+    display: flex !important;
+    flex-flow: column-reverse;
+    padding: 15px 0 0 0;
+}
+
+.oh-form-fields-select {
+    display: flex !important;
+    flex-flow: row;
+    flex-wrap: wrap-reverse;
+}
+
+.oh-form-fields-related {
+    display: flex !important;
+    flex-flow: row;
+    flex-wrap: wrap-reverse;
+    padding: 0px 0 0 0;
+}
+
+.oh-form-fields-related .control-label {
+    flex-basis: 100%;
+    order: 3;
+}
+
+.oh-form-fields-related .control-wrap {
+    /*flex-basis: 40%;*/
+    order: 1;
+}
+
+/*.oh-form-fields-related*/
+a.btn.btn-primary.btn-sm.btn-ajax.pull-right {
+    order: 2;
+    padding-top: 5px;
+    max-height: 30px;
+    margin-bottom: 2px;
+    margin-right: 5px;
+}
+
+.tab-content.panel-body {
+    border: 1px solid #dddddd;
+    border-top: none;
+    margin-top: -15px;
+    background-color: whitesmoke;
+}
+
+.tab-content > .active {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    background-color: whitesmoke;
+}
+
+.tab-pane li.active a {
+    background-color: white;
+}
+
+.formset .tabs .delete-row {
+    align-self: flex-end!important;
+    margin-bottom: -25px!important;
+    margin-top: -10px!important;
+    margin-right: -5px!important;
+    color: white;
+    background-color: #d9534f;
+    border-radius: 4px;
+    border: 1px solid #d43f3a;
+    padding: 2px 5px 3px 5px;
+}
+
+a.delete-row.pull-right:hover {
+        background-color: #d2322d;
+}
+
+@media (min-width: 768px)
+    .select2-container, .selectize-control {
+        max-width: none;
+        min-width: fit-content;
+    }
+
+    .oh-form-fields-select, .oh-form-fields-textarea, .oh-form-fields-related, .oh-form-fields label {
+        font-size: 0.8em;
+    }
+
+    /**
+    * Add a transition to the label and input.
+    */
+    label {
+        text-align: left !important;
+        margin: 5px;
+        padding: 0px !important;
+        /*line-height: 0;*/
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 0.9em;
+        display: block;
+        height: 1.5rem;
+    }
+
+    label, input {
+        transition: all 0.2s;
+        touch-action: manipulation;
+        margin-top: 0px;
+    }
+
+    input input:placeholder-shown {
+        font-size: 1.2em;
+        font-family: inherit;
+        -webkit-appearance: none;
+        cursor: text;
+        margin-top: 0px;
+    }
+
+    /**
+    * Change input border on focus.
+    */
+    input:focus {
+        outline: 0;
+        margin-top: 0px;
+    }
+
+    /**
+    * When the label follows an input matching :placeholder-shown...
+    * 1. Make sure the label is only on one row, at max 2/3rds of the
+    *     field—to make sure it scales properly and doesn't wrap.
+    * 2. Fix the cursor.
+    * 3. Translate down and scale the label up to cover the placeholder.
+    */
+    input:placeholder-shown + label {
+        cursor: text;
+        max-width: 66.66%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transform-origin: left bottom;
+        transform: translate(0, 2.125rem) scale(1);
+        padding-left: 5px;
+        letter-spacing: 0.2em;
+        height: 1.5rem !important;
+    }
+
+    /**
+    * By default, the placeholder should be transparent. Also, it should
+    * inherit the transition.
+    */
+    ::-webkit-input-placeholder {
+        transition: inherit;
+        opacity: 0;
+    }
+
+    /**
+    * Show the placeholder when the input is focused.
+    */
+    input:focus::-webkit-input-placeholder {
+        opacity: 1;
+    }
+
+    /**
+    * 1. When the element is focused, remove the label transform.
+    *     Also, do this when the placeholder is _not_ shown, i.e. when
+    *     there's something in the input at all.
+    * 2. ...and set the cursor to pointer.
+    */
+    input:not(:placeholder-shown) + label,
+    input:focus + label {
+        transform: translate(0, 0) scale(1); /* [1] */
+        cursor: pointer; /* [2] */
+        display: block; /*contents;*/
+        font-size: 0.8em;
+        height: 1.5rem;
+
+    }
 }

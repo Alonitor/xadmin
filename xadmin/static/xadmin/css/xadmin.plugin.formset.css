@@ -44,7 +44,8 @@
     padding: 5px 0px 0px;
 }
 .formset .tabs .tab-content{
-    overflow: hidden;
+    /*Odd-Henrik Removed*/
+    /*overflow: hidden;*/
 }
 .formset .tabs .delete-row{
     float: right;

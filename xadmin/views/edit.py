@@ -17,7 +17,7 @@ from django.template import loader
 from django.utils.translation import ugettext as _
 from django.forms.widgets import Media
 from xadmin import widgets
-from xadmin.layout import FormHelper, Layout, Fieldset, TabHolder, Container, Column, Col, Field
+from xadmin.layout import FormHelper, Layout, Fieldset, TabHolder, Container, Column, Col, Field, Div, MultiField
 from xadmin.util import unquote
 from xadmin.views.detail import DetailAdminUtil
 
@@ -207,6 +207,9 @@ class ModelFormAdminView(ModelAdminView):
                 fs = layout
             elif isinstance(layout[0], (Fieldset, TabHolder)):
                 fs = (Col('full', *layout, horizontal=True, span=12),)
+            elif isinstance(layout[0], (Fieldset, TabHolder, Div)):
+                fs = (Col('full',  Fieldset("", *layout, css_class="oh_blank_fieldset"), horizontal=True, span=12),)
+                # , css_class="oddhenrik"
             else:
                 fs = (Col('full', Fieldset("", *layout, css_class="unsort no_title"), horizontal=True, span=12),)
 
@@ -381,13 +384,23 @@ class CreateAdminView(ModelFormAdminView):
         # We have to special-case M2Ms as a list of comma-separated PKs.
         if self.request_method == 'get':
             initial = dict(self.request.GET.items())
+            # newType = ''
+            # final = {}
             for k in initial:
                 try:
                     f = self.opts.get_field(k)
+                    #final[k] = initial[k].split(",")[0]
                 except models.FieldDoesNotExist:
+                    # try:
+                    #     initial[k] = initial[k].split(",")
+                    #     f = self.opts.get_field(initial[k][0])
+                    #     newType = initial[k][0]
+                    #     final[k] = initial[k]
+                    # except models.FieldDoesNotExist:
+                    #     final[newType] = initial[k]
                     continue
                 if isinstance(f, models.ManyToManyField):
-                    initial[k] = initial[k].split(",")
+                    initial[newType] = initial[k].split(",")
             return {'initial': initial}
         else:
             return {'data': self.request.POST, 'files': self.request.FILES}

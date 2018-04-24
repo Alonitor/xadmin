@@ -31,7 +31,7 @@ class MergeAdminMetaclass(type):
 
 class AdminSite(object):
 
-    def __init__(self, name='xadmin'):
+    def __init__(self, name: object = 'xadmin') -> object:
         self.name = name
         self.app_name = 'xadmin'
 
@@ -352,6 +352,7 @@ class AdminSite(object):
 # This global object represents the default admin site, for the common case.
 # You can instantiate AdminSite in your own code to create a custom admin site.
 site = AdminSite()
+
 
 
 def register(models, **kwargs):

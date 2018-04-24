@@ -1,5 +1,6 @@
 import copy
 import inspect
+import collections
 from django import forms
 from django.forms.formsets import all_valid, DELETION_FIELD_NAME
 from django.forms.models import inlineformset_factory, BaseInlineFormSet, modelform_defines_fields
@@ -352,6 +353,7 @@ class Inline(Fieldset):
     def __init__(self, rel_model):
         self.model = rel_model
         self.fields = []
+
         super(Inline, self).__init__(legend="")
 
     def render(self, form, form_style, context, template_pack=TEMPLATE_PACK, **kwargs):
@@ -432,7 +434,8 @@ class InlineFormsetPlugin(BaseAdminPlugin):
     def get_form_layout(self, layout):
         allow_blank = isinstance(self.admin_view, DetailAdminView)
         # fixed #176 bug, change dict to list
-        fs = [(f.model, InlineFormset(f, allow_blank)) for f in self.formsets]
+        # fs = [(f.model, InlineFormset(f, allow_blank)) for f in self.formsets]
+        fs = collections.OrderedDict([(f.model, InlineFormset(f, allow_blank)) for f in self.formsets])
         replace_inline_objects(layout, fs)
 
         if fs:
@@ -443,8 +446,12 @@ class InlineFormsetPlugin(BaseAdminPlugin):
                 container = layout
 
             # fixed #176 bug, change dict to list
-            for key, value in fs:
-                container.append(value)
+            # for key, value in fs:
+            #     container.append(value)
+
+            # Odd-Henrik Fix because I change line 437 from list to ordered Dict to make the fields come in right order. Then this has to go back to how it was before #176
+            for fs in fs.values():
+                container.append(fs)
 
         return layout
 
